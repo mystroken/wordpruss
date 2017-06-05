@@ -7,14 +7,17 @@ namespace WordPruss\Hook;
  * @package WordPruss\Hook
  * @author Emmanuel KWENE <njume48@gmail.com>
  */
-class HookFactory
+if( !class_exists('WordPruss\Hook\HookFactory') )
 {
-    public $action;
-    public $filter;
-
-    public function __construct()
+    class HookFactory
     {
-        $this->action = new Action();
-        $this->filter = new Filter();
+        public $action;
+        public $filter;
+
+        public function __construct()
+        {
+            $this->action = new Action();
+            $this->filter = new Filter();
+        }
     }
 }
