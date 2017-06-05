@@ -9,7 +9,7 @@
 namespace WordPruss\Hook;
 
 
-abstract class Hook
+interface HookInterface
 {
 
     /**
@@ -19,10 +19,9 @@ abstract class Hook
      * @param $callable
      * @param int $priority
      * @param int $accepted_args
+     * @return \WordPruss\Hook\HookInterface $this
      */
-    public function add($hook_name, $callable, $priority = 10, $accepted_args = 1)
-    {
-    }
+    public function add($hook_name, $callable, $priority = 10, $accepted_args = 1);
 
 
     /**
@@ -31,7 +30,7 @@ abstract class Hook
      * @param $hook_name
      * @param $callable
      * @param int $priority
+     * @return \WordPruss\Hook\HookInterface $this
      */
-    public function remove($hook_name, $callable, $priority = 10)
-    {}
+    public function remove($hook_name, $callable, $priority = 10);
 }
