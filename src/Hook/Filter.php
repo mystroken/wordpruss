@@ -1,18 +1,46 @@
 <?php
+
+namespace Wordpruss\Hook;
+
 /**
- * Created by PhpStorm.
- * User: Emmanuel K
- * Date: 05/06/2017
- * Time: 06:58
+ * Class Filter
+ * @package Wordpruss\Hook
+ * @author Emmanuel KWENE <njume48@gmail.com>
  */
-
-namespace wordpruss\Hook;
-
-
-class Filter extends Hook
+if ( ! class_exists('Wordpruss\Hook\Filter') )
 {
-    public function apply()
+    class Filter implements HookInterface
     {
-        apply_filters();
+        /**
+         * Apply a filter
+         *
+         * @param $hook_name
+         * @param $default_value
+         * @param array ...$variables
+         * @return \WordPruss\Hook\HookInterface $this
+         */
+        public function apply($hook_name, $default_value, ...$variables)
+        {
+            apply_filters($hook_name, $default_value, ...$variables);
+            return $this;
+        }
+
+        /**
+         * {@inheritdoc}
+         */
+        public function add($hook_name, $callable, $priority = 10, $accepted_args = 1)
+        {
+            add_filter($hook_name, $callable, $priority, $accepted_args);
+            return $this;
+        }
+
+        /**
+         * {@inheritdoc}
+         */
+        public function remove($hook_name, $callable, $priority = 10)
+        {
+            remove_filter($hook_name, $callable, $priority);
+            return $this;
+        }
     }
 }

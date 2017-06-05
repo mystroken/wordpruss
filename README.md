@@ -4,7 +4,7 @@ WordPruss
 
 
 
-*"Make WordPress Plugin Development easily fun and beautiful like it has to be."*
+*"Make WordPress Development easily fun and beautiful like it has to be."*
 
 ##### Installation
 

@@ -4,10 +4,10 @@
   "keywords": ["wordpress-development","php","library","wordpress"],
   "homepage":"https://github.com/mystroken/wordpruss",
   "license":"MIT",
-    "type": "library",
-    "require": {
-      "php": ">= 5.6"
-    },
+  "type": "library",
+  "require": {
+    "php": ">= 5.6"
+  },
   "autoload": {
     "psr-4": {
       "WordPruss\\": "src/"
