@@ -1,15 +1,12 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Emmanuel K
- * Date: 05/06/2017
- * Time: 06:42
- */
 
 namespace WordPruss\Hook;
 
-use WordPruss\Hook\HookInterface;
-
+/**
+ * Class Action
+ * @package WordPruss\Hook
+ * @author Emmanuel KWENE <njume48@gmail.com>
+ */
 class Action implements HookInterface
 {
 

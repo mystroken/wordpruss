@@ -1,14 +1,12 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Emmanuel K
- * Date: 05/06/2017
- * Time: 05:13
- */
 
 namespace WordPruss\Hook;
 
-
+/**
+ * Interface HookInterface
+ * @package WordPruss\Hook
+ * @author Emmanuel KWENE <njume48@gmail.com>
+ */
 interface HookInterface
 {
 
