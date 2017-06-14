@@ -134,7 +134,15 @@ class AdminPanel
 		$this->dashboardMenu = $dashboardMenu;
 
 		// Set the panel of the menu by the same way
-		$this->dashboardMenu->setPanel($this);
+		if( !$this->isEqual($this->dashboardMenu->getPanel()) ) $this->dashboardMenu->setPanel($this);
+	}
+
+	/**
+	 * @param AdminPanel $panel
+	 * @return boolean
+	 */
+	public function isEqual( $panel ) {
+		return ( ($this->title === $panel->getTitle()) && ($this->callback === $panel->getCallback()) );
 	}
 
 }

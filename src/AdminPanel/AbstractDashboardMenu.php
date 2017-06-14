@@ -11,7 +11,8 @@ namespace WordPruss\AdminPanel;
  */
 abstract class AbstractDashboardMenu {
 	/**
-	 * @var string the title of menu
+	 * the title of menu
+	 * @var string
 	 */
 	protected $title;
 
@@ -27,12 +28,14 @@ abstract class AbstractDashboardMenu {
 	protected $parentSlug;
 
 	/**
-	 * @var float the order of menu
+	 * the order of menu
+	 * @var float
 	 */
 	protected $order;
 
 	/**
-	 * @var string the icon of menu
+	 * the icon of menu
+	 * @var string
 	 */
 	protected $icon;
 
@@ -125,6 +128,17 @@ abstract class AbstractDashboardMenu {
 	 */
 	public function setPanel( $panel ) {
 		$this->panel = $panel;
+
+		// Set the panel of the menu by the same way
+		if( !$this->isEqual($this->panel->getDashboardMenu()) ) $this->panel->setDashboardMenu($this);
+	}
+
+	/**
+	 * @param AbstractDashboardMenu $menu
+	 * @return boolean
+	 */
+	public function isEqual( $menu ) {
+		return ( ($this->isSubMenu() === $menu->isSubMenu()) && ($this->slug === $menu->getSlug()) && ($this->parentSlug === $menu->getParentSlug()) );
 	}
 
 
