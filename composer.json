@@ -13,6 +13,11 @@
       "WordPruss\\": "src/"
     }
   },
+  "autoload-dev": {
+    "psr-4": {
+      "WordPruss\\Tests\\": "tests/"
+    }
+  },
   "minimum-stability": "dev",
   "authors": [
     {
