@@ -46,13 +46,27 @@ abstract class AbstractMenu {
 		// Sets menu arguments.
 		$this->setArguments( array_merge($this->defaults, $options) );
 
-		// Makes sure that required arguments be present.
-		If( !empty($this->required) ) {
-			foreach( $this->required as $argument ){
-				if( !array_key_exists($options, $argument) ){
+	}
 
+	/**
+	 * Makes sure required arguments are present and not empty.
+	 *
+	 * @throws \InvalidArgumentException
+	 */
+	protected function checkRequiredArguments(){
+
+		If( !empty($this->required) ){
+
+			foreach( $this->required as $argument ){
+
+				if( !array_key_exists($argument, $this->arguments)
+				    OR  empty($this->arguments[$argument])
+				){
+					throw new \InvalidArgumentException("'{$argument}' is a required argument. It has to be set and valued!");
 				}
+
 			}
+
 		}
 
 	}
@@ -105,4 +119,11 @@ abstract class AbstractMenu {
 	 * @return boolean
 	 */
 	public abstract function isSubMenu();
+
+	/**
+	 * Attaches menu to the WordPress menus list.
+	 *
+	 * @return self
+	 */
+	public abstract function attach();
 }

@@ -12,24 +12,40 @@ namespace WordPruss\AdminPanel;
 class Menu extends AbstractMenu
 {
 
-	public function __construct($options = []) {
+	/**
+	 * {@inheritdoc}
+	 */
+	protected $defaults = [
+		'title' => '',
+		'slug'  => '',
+		'order' => 'Default Order',
+	];
 
-		foreach (['title', 'slug', 'order', 'icon'] as $key) {
-			if( isset($options[$key]) ) {
-				$setter = 'set' . ucfirst( strtolower($key) );
-				$this->$setter($options[$key]);
-			}
-		}
+	/**
+	 * {@inheritdoc}
+	 */
+	protected $required = [
+		'title', 'slug'
+	];
 
-		if( empty($this->title) ) {
-			throw new \InvalidArgumentException("The required 'title' option is missing");
-		}
 
-		if( empty($this->slug) ) {
-			throw new \InvalidArgumentException("The required 'slug' option is missing");
-		}
-
+	public function __construct( $options ){
+		parent::__construct( $options );
 	}
 
-	public function isSubMenu() { return false; }
+	/**
+	 * {@inheritdoc}
+	 */
+	public function attach(){
+
+		// Makes sure required arguments are present and not empty.
+		$this->checkRequiredArguments();
+	}
+
+	/**
+	 * {@inheritdoc}
+	 */
+	public function isSubMenu(){
+		return false;
+	}
 }

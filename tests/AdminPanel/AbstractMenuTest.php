@@ -29,7 +29,7 @@ class AbstractMenuTest extends TestCase
 	}
 
 	public function testCanGetADefaultArgument(){
-		$this->assertEquals('Default Title', $this->menu->getDefault('title'));
+		$this->assertEquals('test', $this->menu->getDefault('test'));
 	}
 
 	public function testCanSetAnDefaultArgument(){
@@ -42,7 +42,7 @@ class AbstractMenuTest extends TestCase
 	}
 
 	public function testCanGetAnArgument(){
-		$this->assertEquals('Default Title', $this->menu->getArgument('title'));
+		$this->assertEquals('test', $this->menu->getArgument('test'));
 	}
 
 	public function testCanSetAnArgument(){
@@ -50,9 +50,16 @@ class AbstractMenuTest extends TestCase
 		$this->assertEquals('New Title', $this->menu->getArgument('title'));
 	}
 
-	public function testRequiredArgumentsAreRequired(){
-		if( !empty($this->menu->getRequired()) ){
-			$this->expectException(\Exception::class);
-		}
+	public function testNotRequiredArgumentsIsAllowed(){
+		$this->menu->setRequired([])->attach();
+		$this->addToAssertionCount(1);
 	}
+
+	public function testRequiredArgumentsAreRequired(){
+		$this->expectException(\InvalidArgumentException::class);
+		$this->menu->setRequired(['title'])->attach();
+	}
+
+
+
 }
