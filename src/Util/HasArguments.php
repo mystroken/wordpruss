@@ -17,10 +17,16 @@ namespace WordPruss\Util;
 Trait HasArguments {
 
 	/**
-	 * Arguments array
+	 * Arguments array.
 	 * @var array
 	 */
 	protected $arguments = [];
+
+	/**
+	* Required arguments array.
+	*/
+	protected $required = [];
+
 
 	/**
 	 * Gets all arguments array.
@@ -115,5 +121,47 @@ Trait HasArguments {
 		return $this;
 	}
 
+	/**
+	 * Gets required arguments.
+	 *
+	 * @return array
+	 */
+	public function getRequired() {
+		return $this->required;
+	}
+
+	/**
+	 * Set required arguments.
+	 *
+	 * @param array $required
+	 * @return self
+	 */
+	public function setRequired( $required ) {
+		$this->required = $required;
+		return $this;
+	}
+
+		/**
+		 * Makes sure required arguments are present and not empty.
+		 *
+		 * @throws \InvalidArgumentException
+		 */
+		protected function checkRequiredArguments(){
+
+			If( !empty($this->required) ){
+
+				foreach( $this->required as $argument ){
+
+					if( !array_key_exists($argument, $this->arguments)
+					    OR  empty($this->arguments[$argument])
+					){
+						throw new \InvalidArgumentException("'{$argument}' is a required argument. It has to be set and valued!");
+					}
+
+				}
+
+			}
+
+		}
 
 }
