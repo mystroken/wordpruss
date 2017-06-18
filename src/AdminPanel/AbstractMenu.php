@@ -2,6 +2,8 @@
 
 namespace WordPruss\AdminPanel;
 
+use WordPruss\Util\HasArguments;
+
 /**
  * Class AbstractDashboardMenu
  *
@@ -10,138 +12,60 @@ namespace WordPruss\AdminPanel;
  * @since v0.2
  */
 abstract class AbstractMenu {
-	/**
-	 * the title of menu
-	 * @var string
-	 */
-	protected $title;
+	use HasArguments;
 
 	/**
-	 * an unique name for the panel
-	 * @var string
+	 * Default Menu arguments.
+	 *
+	 * @var array
 	 */
-	protected $slug;
+	protected $defaults = [];
 
 	/**
-	 * @var string
-	 */
-	protected $parentSlug;
-
-	/**
-	 * the order of menu
-	 * @var float
-	 */
-	protected $order;
-
-	/**
-	 * the icon of menu
-	 * @var string
-	 */
-	protected $icon;
-
-	/**
+	 * Panel of the menu.
+	 *
 	 * @var Panel
 	 */
-	protected $panel;
+	protected $panel = null;
 
 
 	/**
-	 * @return string
+	 * AbstractMenu constructor.
+	 *
+	 * @param $options array
 	 */
-	public function getTitle() {
-		return $this->title;
-	}
-
-	/**
-	 * @param string $title
-	 */
-	public function setTitle( $title ) {
-		$this->title = $title;
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getSlug() {
-		return $this->slug;
-	}
-
-	/**
-	 * @param string $slug
-	 */
-	public function setSlug( $slug ) {
-		$this->slug = $slug;
+	protected function __construct( $options ){
+		$this->setArguments( array_merge($this->defaults, $options) );
 	}
 
 
 	/**
-	 * @return string
-	 */
-	public function getParentSlug() {
-		return $this->parentSlug;
-	}
-
-	/**
-	 * @param string $parentSlug
-	 */
-	public function setParentSlug( $parentSlug ) {
-		$this->parentSlug = $parentSlug;
-	}
-
-	/**
-	 * @return float
-	 */
-	public function getOrder() {
-		return $this->order;
-	}
-
-	/**
-	 * @param float $order
-	 */
-	public function setOrder( $order ) {
-		$this->order = $order;
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getIcon() {
-		return $this->icon;
-	}
-
-	/**
-	 * @param string $icon
-	 */
-	public function setIcon( $icon ) {
-		$this->icon = $icon;
-	}
-
-	/**
+	 * Gets the panel of the menu.
+	 *
 	 * @return Panel
 	 */
 	public function getPanel() {
 		return $this->panel;
 	}
 
+
 	/**
+	 * Sets the panel of the menu.
+	 *
 	 * @param Panel $panel
+	 * @return self
 	 */
 	public function setPanel( $panel ) {
 		$this->panel = $panel;
 
-		// Set the panel of the menu by the same way
-		if( !$this->isEqual($this->panel->getMenu()) ) $this->panel->setMenu($this);
+		return $this;
 	}
 
+
 	/**
-	 * @param AbstractMenu $menu
+	 * Checks if the instance is a menu or a submenu.
 	 *
 	 * @return boolean
 	 */
-	public function isEqual( $menu ) {
-		return ( ($this->isSubMenu() === $menu->isSubMenu()) && ($this->slug === $menu->getSlug()) && ($this->parentSlug === $menu->getParentSlug()) );
-	}
-
-
 	public abstract function isSubMenu();
 }
