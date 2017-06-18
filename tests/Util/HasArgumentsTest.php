@@ -15,16 +15,19 @@ use WordPruss\Util\HasArguments;
 class HasArgumentsFakeClass
 {
 	use HasArguments;
+
+	/**
+	 * Defaults arguments
+	 * @var array
+	 */
+	protected $defaults = [];
 }
 
 class HasArgumentsTest extends TestCase {
 
-	protected $fakeClass;
 
-	public function setUp(){
-		$this->fakeClass = new HasArgumentsFakeClass();
-	}
 	public function testCannotWorkWithoutDefaultVar(){
-		$this->fakeClass->getDefaults();
+		$hasArgumentClass = new HasArgumentsFakeClass();
+		$hasArgumentClass->getDefaults();
 	}
 }

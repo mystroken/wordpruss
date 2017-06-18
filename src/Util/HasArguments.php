@@ -18,12 +18,6 @@ Trait HasArguments {
 	protected $arguments = [];
 
 	/**
-	 * Defaults arguments
-	 * @var array
-	 */
-	protected $defaults = [];
-
-	/**
 	 * Gets all arguments array.
 	 *
 	 * @return array
