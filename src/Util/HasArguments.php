@@ -8,7 +8,12 @@
 
 namespace WordPruss\Util;
 
-
+/**
+ * Trait HasArguments
+ *
+ * @package WordPruss\Util
+ * @author Mystro Ken <mystroken@gmail.com>
+ */
 Trait HasArguments {
 
 	/**
@@ -34,7 +39,6 @@ Trait HasArguments {
 	 */
 	public function setArguments( $arguments ) {
 		$this->arguments = $arguments;
-
 		return $this;
 	}
 
@@ -46,7 +50,7 @@ Trait HasArguments {
 	 */
 	public function getArgument( $argument ){
 
-		return isset( $this->arguments[$argument] )
+		return array_key_exists( $argument, $this->arguments )
 			? $this->arguments[$argument]
 			: ''
 		;
@@ -61,7 +65,6 @@ Trait HasArguments {
 	 */
 	public function setArgument( $argument, $value ){
 		$this->arguments[$argument] = $value;
-
 		return $this;
 	}
 
@@ -82,7 +85,6 @@ Trait HasArguments {
 	 */
 	public function setDefaults( $defaults ) {
 		$this->defaults = $defaults;
-
 		return $this;
 	}
 
@@ -95,7 +97,7 @@ Trait HasArguments {
 	 */
 	public function getDefault( $argument ){
 
-		return isset( $this->defaults[$argument] )
+		return array_key_exists( $argument, $this->defaults )
 			? $this->defaults[$argument]
 			: ''
 		;
@@ -110,7 +112,6 @@ Trait HasArguments {
 	 */
 	public function setDefault( $argument, $value ){
 		$this->defaults[$argument] = $value;
-
 		return $this;
 	}
 
