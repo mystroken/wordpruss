@@ -45,7 +45,11 @@ Trait HasArguments {
 	 * @return mixed
 	 */
 	public function getArgument( $argument ){
-		return $this->arguments[$argument];
+
+		return isset( $this->arguments[$argument] )
+			? $this->arguments[$argument]
+			: ''
+		;
 	}
 
 	/**
@@ -90,7 +94,11 @@ Trait HasArguments {
 	 * @return mixed
 	 */
 	public function getDefault( $argument ){
-		return $this->defaults[$argument];
+
+		return isset( $this->defaults[$argument] )
+			? $this->defaults[$argument]
+			: ''
+		;
 	}
 
 	/**
