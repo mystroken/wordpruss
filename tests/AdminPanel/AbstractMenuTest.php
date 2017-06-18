@@ -49,4 +49,10 @@ class AbstractMenuTest extends TestCase
 		$this->menu->setArgument('title', 'New Title');
 		$this->assertEquals('New Title', $this->menu->getArgument('title'));
 	}
+
+	public function testRequiredArgumentsAreRequired(){
+		if( !empty($this->menu->getRequired()) ){
+			$this->expectException(\Exception::class);
+		}
+	}
 }
