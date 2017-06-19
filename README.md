@@ -8,7 +8,7 @@
 
 WordPruss is a reusable set of clean PHP classes that wrap WordPress functions for fastly develop a plugin or a theme.
 
-*"Make WordPress Development easily fun and beautiful like it has to be."*
+
 
 ## Installation
 
@@ -23,13 +23,24 @@ This will install WordPruss and all required dependencies. WordPruss requires PH
 
 ## Usage
 
-First of all, you have to include the autoload file of Composer to your project.
+First of all, you have to include the autoload file of Composer.
 
 ```php
 require 'vendor/autoload.php';
 ```
 
+Theme development  => Ideally into functions.php file.
+Plugin development => Ideally into /path/your-plugin-folder/your-plugin-bootstrap-file.php file
+
 For more information on how to configure your web server, see the [Documentation](##).
+
+## Contributing
+
+Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
+
+## Security
+
+If you discover security related issues, please email mystroken@gmail.com or use the issue tracker.
 
 ## License
 WordPruss is an open-sourced library licensed under the MIT license. See [License File](LICENSE.md) for more information.
