@@ -18,7 +18,8 @@ class Menu extends AbstractMenu
 	protected $defaults = [
 		'title' => '',
 		'slug'  => '',
-		'order' => 'Default Order',
+		'order' => null,
+        'icon' => 'none'
 	];
 
 	/**
@@ -40,6 +41,16 @@ class Menu extends AbstractMenu
 
 		// Makes sure required arguments are present and not empty.
 		$this->checkRequiredArguments();
+
+		add_menu_page(
+		    $this->panel->getArgument('title'),
+		    $this->getArgument('title'),
+            $this->panel->getArgument('role'),
+            $this->getArgument('slug'),
+            $this->panel->getArgument('callback'),
+            $this->getArgument('icon'),
+            $this->getArgument('order')
+        );
 	}
 
 	/**
