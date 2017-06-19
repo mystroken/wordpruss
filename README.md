@@ -38,30 +38,30 @@ require __DIR__. '/vendor/autoload.php';
 
 
 // Creates a new admin menu
-$menu = new \WordPruss\AdminPanel\Menu([
-	'title' => 'My Plugin Name',
-	'slug' => 'my_plugin_name',
+$adminMenu = new \WordPruss\AdminPanel\Menu([
+    'title' => 'My Plugin Name',
+    'slug' => 'my_plugin_name'
 ]);
 
 // Create a panel for the menu
-$panel = new \WordPruss\AdminPanel\Panel([
-	'title' => 'Plugin Name - Welcome to the settings page',
-	'role' => 'manage_options',
-	'callback' => function() {
-		return '<h1>Hello World !</h1>';
-	}
+$adminPanel = new \WordPruss\AdminPanel\Panel([
+    'title' => 'Plugin Name - Welcome to the settings page',
+    'role' => 'manage_options',
+    'callback' => function() {
+        echo '<h1>Hello World !</h1>';
+    }
 ]);
 
-$menu
+$adminMenu
 // Links panel to the menu
-    ->setPanel($panel)
+    ->setPanel($adminPanel)
 // Adds the menu to WordPress admin menus list
     ->attach();
 
 ```
 
 
-For more information on how to configure your web server, see the [Documentation](##).
+For more information on how to configure your web server, see the [Documentation](https://mystroken.github.io/wordpruss/).
 
 ## Contributing
 
