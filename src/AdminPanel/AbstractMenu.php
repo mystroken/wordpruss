@@ -22,13 +22,6 @@ abstract class AbstractMenu {
 	protected $defaults = [];
 
 	/**
-	 * Required menu arguments.
-	 *
-	 * @var array
-	 */
-	protected $required = [];
-
-	/**
 	 * Panel of the menu.
 	 *
 	 * @var Panel
