@@ -15,20 +15,17 @@ class Panel
 {
     use HasArguments;
 
-    /**
-     * {@inheritdoc}
-     */
-    protected $defaults = [
-        'title' => '',
-        'role'  => 'manage_options',
-        'callback' => ''
-    ];
+    public function __construct( $arguments ) {
+        // Sets defaults arguments.
+        $this->setDefault('title', '');
+        $this->setDefault('role', 'manage_options');
+        $this->setDefault('callback', '');
 
-    /**
-     * {@inheritdoc}
-     */
-    protected $required = [
-        'title', 'role'
-    ];
+        // Sets required arguments.
+        $this->setRequired(['title', 'role']);
+
+        // Sets menu arguments.
+        $this->setArguments( array_merge($this->defaults, $arguments) );
+    }
 
 }

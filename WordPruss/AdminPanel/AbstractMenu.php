@@ -25,12 +25,12 @@ abstract class AbstractMenu {
 	/**
 	 * AbstractMenu constructor.
 	 *
-	 * @param $options array
+	 * @param $arguments array
 	 */
-	public function __construct( $options ){
+	public function __construct( $arguments ){
 
 		// Sets menu arguments.
-		$this->setArguments( array_merge($this->defaults, $options) );
+		$this->setArguments( array_merge($this->defaults, $arguments) );
 
 	}
 

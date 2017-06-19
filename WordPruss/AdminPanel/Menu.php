@@ -1,6 +1,7 @@
 <?php
 
 namespace WordPruss\AdminPanel;
+use WordPruss\Hook\HookFactory;
 
 /**
  * Class DashboardMenu
@@ -30,8 +31,8 @@ class Menu extends AbstractMenu
 	];
 
 
-	public function __construct( $options ){
-		parent::__construct( $options );
+	public function __construct( $arguments ){
+		parent::__construct( $arguments );
 	}
 
 	/**
@@ -42,15 +43,21 @@ class Menu extends AbstractMenu
 		// Makes sure required arguments are present and not empty.
 		$this->checkRequiredArguments();
 
-		add_menu_page(
-		    $this->panel->getArgument('title'),
-		    $this->getArgument('title'),
-            $this->panel->getArgument('role'),
-            $this->getArgument('slug'),
-            $this->panel->getArgument('callback'),
-            $this->getArgument('icon'),
-            $this->getArgument('order')
-        );
+
+		$hook = new HookFactory();
+		$hook->action->add('admin_menu', function() {
+
+            add_menu_page(
+                $this->panel->getArgument('title'),
+                $this->getArgument('title'),
+                $this->panel->getArgument('role'),
+                $this->getArgument('slug'),
+                $this->panel->getArgument('callback'),
+                $this->getArgument('icon'),
+                $this->getArgument('order')
+            );
+
+        });
 	}
 
 	/**

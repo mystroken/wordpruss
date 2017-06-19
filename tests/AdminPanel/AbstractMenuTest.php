@@ -31,6 +31,11 @@ class AbstractMenuTest extends TestCase
 		$this->assertArrayHasKey('icon', $this->menu->getDefaults());
 	}
 
+    public function testCanSetANotDefinedDefaultsArgument(){
+	    $this->menu->setDefault('not_defined', 'defined');
+	    $this->assertEquals('defined', $this->menu->getDefault('not_defined'));
+    }
+
 	public function testCanGetANotDefinedArgument(){
 		$this->assertEquals('', $this->menu->getArgument('not_defined'));
 	}
