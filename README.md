@@ -6,7 +6,7 @@
 [![License](https://poser.pugx.org/wordpruss/wordpruss/license)](https://packagist.org/packages/wordpruss/wordpruss)
 
 
-WordPruss is a reusable set of clean PHP classes that wrap WordPress functions for fastly develop a plugin or a theme.
+WordPruss is a reusable set of clean PHP classes that wrap WordPress functions for a fastly plugin or theme development.
 
 
 
@@ -15,7 +15,7 @@ WordPruss is a reusable set of clean PHP classes that wrap WordPress functions f
 It's recommended that you use [Composer](https://getcomposer.org/) to install WordPruss.
 
 ```bash
-$ composer require wordpruss/wordpruss "~0.1"
+$ composer require wordpruss/wordpruss "dev-master"
 ```
 
 This will install WordPruss and all required dependencies. WordPruss requires PHP 5.6 or newer.
