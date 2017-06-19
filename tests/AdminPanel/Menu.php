@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Mystro Ken
- * Date: 18/06/2017
- * Time: 21:17
- */
 
 namespace WordPruss\Tests\AdminPanel;
 

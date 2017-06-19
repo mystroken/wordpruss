@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Mystro Ken
- * Date: 18/06/2017
- * Time: 15:26
- */
 
 namespace WordPruss\Util;
 
@@ -17,14 +11,21 @@ namespace WordPruss\Util;
 Trait HasArguments {
 
 	/**
-	 * Arguments array.
+	 * Arguments.
 	 *
 	 * @var array
 	 */
 	protected $arguments = [];
 
+    /**
+     * Default arguments.
+     *
+     * @var array
+     */
+    protected $defaults = [];
+
 	/**
-	 * Required arguments array.
+	 * Required arguments.
 	 *
 	 * @var array
 	 */

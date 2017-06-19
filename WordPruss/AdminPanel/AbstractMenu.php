@@ -15,13 +15,6 @@ abstract class AbstractMenu {
 	use HasArguments;
 
 	/**
-	 * Default menu arguments.
-	 *
-	 * @var array
-	 */
-	protected $defaults = [];
-
-	/**
 	 * Panel of the menu.
 	 *
 	 * @var Panel
@@ -38,29 +31,6 @@ abstract class AbstractMenu {
 
 		// Sets menu arguments.
 		$this->setArguments( array_merge($this->defaults, $options) );
-
-	}
-
-	/**
-	 * Makes sure required arguments are present and not empty.
-	 *
-	 * @throws \InvalidArgumentException
-	 */
-	protected function checkRequiredArguments(){
-
-		If( !empty($this->required) ){
-
-			foreach( $this->required as $argument ){
-
-				if( !array_key_exists($argument, $this->arguments)
-				    OR  empty($this->arguments[$argument])
-				){
-					throw new \InvalidArgumentException("'{$argument}' is a required argument. It has to be set and valued!");
-				}
-
-			}
-
-		}
 
 	}
 
@@ -83,26 +53,6 @@ abstract class AbstractMenu {
 	 */
 	public function setPanel( $panel ) {
 		$this->panel = $panel;
-		return $this;
-	}
-
-	/**
-	 * Gets required arguments.
-	 *
-	 * @return array
-	 */
-	public function getRequired() {
-		return $this->required;
-	}
-
-	/**
-	 * Set required arguments.
-	 *
-	 * @param array $required
-	 * @return self
-	 */
-	public function setRequired( $required ) {
-		$this->required = $required;
 		return $this;
 	}
 

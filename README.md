@@ -23,14 +23,43 @@ This will install WordPruss and all required dependencies. WordPruss requires PH
 
 ## Usage
 
-First of all, you have to include the autoload file of Composer.
+Here is a Basic Example of the library usage:
 
 ```php
-require 'vendor/autoload.php';
+<?php
+
+/*
+* Suppose that we need
+* to create an admin panel for our plugin.
+* Let's go
+*/
+
+require __DIR__. '/vendor/autoload.php';
+
+
+// Creates a new admin menu
+$menu = new \WordPruss\AdminPanel\Menu([
+	'title' => 'My Plugin Name',
+	'slug' => 'my_plugin_name',
+]);
+
+// Create a panel for the menu
+$panel = new \WordPruss\AdminPanel\Panel([
+	'title' => 'Plugin Name - Welcome to the settings page',
+	'role' => 'manage_options',
+	'callback' => function() {
+		return '<h1>Hello World !</h1>';
+	}
+]);
+
+$menu
+// Links panel to the menu
+    ->setPanel($panel)
+// Adds the menu to WordPress admin menus list
+    ->attach();
+
 ```
 
-Theme development  => Ideally into functions.php file.
-Plugin development => Ideally into /path/your-plugin-folder/your-plugin-bootstrap-file.php file
 
 For more information on how to configure your web server, see the [Documentation](##).
 
