@@ -10,7 +10,12 @@
   },
   "autoload": {
     "psr-4": {
-      "WordPruss\\": "src/"
+      "WordPruss\\": "WordPruss/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "WordPruss\\Tests\\": "tests/"
     }
   },
   "minimum-stability": "dev",
