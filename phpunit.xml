@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<phpunit
+        bootstrap="./vendor/autoload.php"
+        colors="true"
+>
+
+    <testsuites>
+        <testsuite name="WordPruss Test Suite">
+            <directory>./tests/Hook</directory>
+            <directory>./tests/AdminPanel</directory>
+            <directory>./tests/Util</directory>
+        </testsuite>
+    </testsuites>
+
+    <filter>
+        <whitelist processUncoveredFromWhiteList="true">
+            <directory suffix=".php">src/</directory>
+        </whitelist>
+    </filter>
+
+</phpunit>
