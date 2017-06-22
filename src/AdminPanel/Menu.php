@@ -13,9 +13,11 @@ use WordPruss\Hook\HookFactory;
 class Menu extends AbstractMenu
 {
 
-	/**
-	 * {@inheritdoc}
-	 */
+    /**
+     * Default arguments.
+     *
+     * @var array
+     */
 	protected $defaults = [
 		'title' => '',
 		'slug'  => '',
@@ -23,9 +25,11 @@ class Menu extends AbstractMenu
         'icon' => 'none'
 	];
 
-	/**
-	 * {@inheritdoc}
-	 */
+    /**
+     * Required arguments.
+     *
+     * @var array
+     */
 	protected $required = [
 		'title', 'slug'
 	];
