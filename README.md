@@ -1,8 +1,6 @@
 # WordPruss
 
 [![Build Status](https://travis-ci.org/mystroken/wordpruss.svg?branch=master)](https://travis-ci.org/mystroken/wordpruss)
-[![Latest Stable Version](https://poser.pugx.org/wordpruss/wordpruss/v/stable)](https://packagist.org/packages/wordpruss/wordpruss)
-[![Coverage Status](https://coveralls.io/repos/github/mystroken/wordpruss/badge.svg?branch=master)](https://coveralls.io/github/mystroken/wordpruss?branch=master)
 [![Total Downloads](https://poser.pugx.org/wordpruss/wordpruss/downloads)](https://packagist.org/packages/wordpruss/wordpruss)
 [![License](https://poser.pugx.org/wordpruss/wordpruss/license)](https://packagist.org/packages/wordpruss/wordpruss)
 
