@@ -35,15 +35,18 @@ Here is a Basic Example of the library usage:
 
 require __DIR__. '/vendor/autoload.php';
 
+use \WordPruss\AdminPanel\Menu;
+use \WordPruss\AdminPanel\Panel;
+
 
 // Creates a new admin menu
-$adminMenu = new \WordPruss\AdminPanel\Menu([
+$adminMenu = new Menu([
     'title' => 'My Plugin Name',
     'slug' => 'my_plugin_name'
 ]);
 
 // Create a panel for the menu
-$adminPanel = new \WordPruss\AdminPanel\Panel([
+$adminPanel = new Panel([
     'title' => 'Plugin Name - Welcome to the settings page',
     'role' => 'manage_options',
     'callback' => function() {
@@ -56,7 +59,6 @@ $adminMenu
     ->setPanel($adminPanel)
 // Adds the menu to WordPress admin menus list
     ->attach();
-
 ```
 
 
