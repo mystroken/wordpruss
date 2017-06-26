@@ -1,20 +1,27 @@
 <?php
 
-namespace WordPruss\AdminPanel;
+namespace WordPruss\Admin\Page;
 
-use WordPruss\Util\HasArguments;
+use WordPruss\Support\HasArgumentsTrait;
 
 /**
  * Class AdminPanel
  *
  * @package WordPruss\AdminPanel
  * @author Mystro Ken <mystroken@gmail.com>
- * @since v0.2
+ * @since v1.0
  */
-class Panel
+class Page
 {
-    use HasArguments;
+    use HasArgumentsTrait;
 
+    /**
+     * Page constructor.
+     *
+     * Constructs an admin page.
+     *
+     * @param $arguments
+     */
     public function __construct( $arguments ) {
         // Sets defaults arguments.
         $this->setDefault('title', '');
@@ -26,6 +33,17 @@ class Panel
 
         // Sets menu arguments.
         $this->setArguments( array_merge($this->defaults, $arguments) );
+    }
+
+    /**
+     * @return mixed|string
+     * @codeCoverageIgnore
+     */
+    public function __toString() {
+        return !empty($this->getArgument('title'))
+            ? $this->getArgument('title')
+            : ''
+        ;
     }
 
 }

@@ -1,14 +1,15 @@
 <?php
 
-namespace WordPruss\Util;
+namespace WordPruss\Support;
 
 /**
  * Trait HasArguments
  *
- * @package WordPruss\Util
+ * @package WordPruss\Support
  * @author Mystro Ken <mystroken@gmail.com>
+ * @since v1.0
  */
-Trait HasArguments {
+Trait HasArgumentsTrait {
 
 	/**
 	 * Arguments.
@@ -16,6 +17,20 @@ Trait HasArguments {
 	 * @var array
 	 */
 	protected $arguments = [];
+
+    /**
+     * Default arguments.
+     *
+     * @var array
+     */
+    protected $defaults = [];
+
+    /**
+     * Required arguments.
+     *
+     * @var array
+     */
+    protected $required = [];
 
 	/**
 	 * Gets all arguments array.
@@ -133,9 +148,11 @@ Trait HasArguments {
 	/**
 	 * Makes sure required arguments are present and not empty.
 	 *
+     * @codeCoverageIgnore
+     *
 	 * @throws \InvalidArgumentException
 	 */
-	protected function checkRequiredArguments(){
+	public function checkRequiredArguments(){
 
 		If( !empty($this->required) ){
 
