@@ -20,17 +20,12 @@ class Shortcode implements HookInterface
     /**
      * @var string
      */
-    protected $content;
-
-    /**
-     * @var string
-     */
     protected $tagName;
 
     /**
-     * @var array
+     * @var callable
      */
-    protected $attributes;
+    protected $callable;
 
 
     /**
@@ -38,25 +33,10 @@ class Shortcode implements HookInterface
      *
      * @param string $tagName
      */
-    public function __construct( $tagName = '' ){
+    public function __construct( $tagName ){
         if( is_string($tagName) ){
             $this->tagName = $tagName;
         }
-    }
-
-
-    /**
-     * @return string
-     */
-    public function getContent() {
-        return $this->content;
-    }
-
-    /**
-     * @param string $content
-     */
-    public function setContent( $content ) {
-        $this->content = $content;
     }
 
     /**
@@ -74,21 +54,15 @@ class Shortcode implements HookInterface
     }
 
     /**
-     * @return array
+     * handle
+     *
+     * @param $callable callable
+     * @return self
      */
-    public function getAttributes() {
-        return $this->attributes;
+    public function handle($callable){
+        $this->callable = $callable;
+        return $this;
     }
-
-    /**
-     * @param array $attributes
-     */
-    public function setAttributes( $attributes ) {
-        $this->attributes = $attributes;
-    }
-
-
-    protected function addShorcode($attributes, $content = ''){}
 
 
     /**
@@ -97,10 +71,11 @@ class Shortcode implements HookInterface
      */
     public function hook(){
 
-        if ( empty($this->tagName) ){
-            throw new \InvalidArgumentException("You have to set a valid tagName first!");
+        if ( empty($this->callable) ){
+            throw new \InvalidArgumentException("You have to set a handler to the shortcode first!");
         }else{
-            add_shortcode( $this->getTagName() , [$this, 'addShortcode'] );
+            add_shortcode($this->getTagName(), $this->callable);
         }
     }
+
 }
