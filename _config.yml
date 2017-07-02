@@ -4,3 +4,6 @@ name: WordPruss
 sass:
     sass_dir: assets/css
     style: compressed
+
+# Serving
+#baseurl: /wordpruss
