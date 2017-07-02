@@ -7,3 +7,6 @@ package.tar
 coverage
 /.phpunit
 .idea/
+.sass-cache/
+_includes/
+_site/
