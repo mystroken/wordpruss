@@ -7,3 +7,5 @@ sass:
 
 # Serving
 #baseurl: /wordpruss
+
+highlighter: rouge
