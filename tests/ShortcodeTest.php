@@ -17,26 +17,24 @@ class ShortcodeTest extends TestCase {
 
     /** @var Shortcode  */
     protected $shortcode;
+    protected $tagName = 'test';
 
 
     public function setUp(){
-        $this->shortcode = new Shortcode();
+        $this->shortcode = new Shortcode($this->tagName);
     }
 
     public function testGettersAndSetters(){
-        $testContent = 'content';
         $testTagName = 'tag';
-        $testAttributes = [
-            [ 'attribute' => 'value' ]
-        ];
+        $testAttributes = ['attribute 1' => 'value'];
 
-        $this->shortcode->setContent($testContent);
         $this->shortcode->setTagName($testTagName);
         $this->shortcode->setAttributes($testAttributes);
-
-        $this->assertEquals($testContent, $this->shortcode->getContent());
         $this->assertEquals($testTagName, $this->shortcode->getTagName());
         $this->assertEquals($testAttributes, $this->shortcode->getAttributes());
+    }
+
+    public function testHandler(){
 
     }
 }
