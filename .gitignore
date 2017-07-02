@@ -7,3 +7,5 @@ package.tar
 /packages.json
 /.phpunit
 .idea/
+.sass-cache/
+_site/

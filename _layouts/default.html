@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="WordPruss is a reusable set of clean PHP classes that wrap WordPress functions for a fastly plugin or theme development.">
+    <meta name="author" content="Mystro Ken">
+    <title>{{ page.title }}</title>
+    <link href="/assets/css/style.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+    <div class="container">
+        <div class="header clearfix">
+            <nav>
+                <ul class="nav nav-pills pull-right">
+                   <li role="presentation"><a href="/">Home</a></li>
+                   <li role="presentation"><a href="/docs">Documentation</a></li>
+                   <li role="presentation"><a href="/contribute">Contribute</a></li>
+                </ul>
+           </nav>
+            <h3 class="text-muted">
+                <a href="/">WordPruss</a>
+            </h3>
+       </div><!-- .header -->
+
+    {{ content }}
+
+        <footer class="footer">
+            <p>Created and maintained by <a href="https://twitter.com/mystroken">Mystro Ken</a>.</p>
+        </footer>
+
+    </div> <!-- /container -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
+</body>
+</html>
