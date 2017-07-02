@@ -1,6 +1,5 @@
 #theme: jekyll-theme-minimal
 name: WordPruss
-markdown: kramdown
 
 sass:
     sass_dir: assets/css
