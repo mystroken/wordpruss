@@ -13,6 +13,7 @@ use WordPruss\Hook\HookInterface;
  * @package WordPruss
  * @author Mystro Ken <mystroken@gmail.com>
  * @since v1.0
+ * @see https://codex.wordpress.org/Shortcode_API
  */
 class Shortcode implements HookInterface
 {

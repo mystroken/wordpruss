@@ -11,6 +11,7 @@ use WordPruss\Support\HasArgumentsTrait;
  * @package WordPruss\AdminPanel
  * @author Mystro Ken <mystroken@gmail.com>
  * @since v1.0
+ * @see https://codex.wordpress.org/Administration_Menus
  */
 abstract class AbstractMenu implements HookInterface
 {
