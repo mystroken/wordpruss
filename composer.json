@@ -1,8 +1,8 @@
 {
-  "name": "wordpruss/wordpruss",
+  "name": "companionsofwp/wordpruss",
   "description": "A reusable set of clean and beautified PHP classes that wrap WordPress functionalities.",
   "keywords": ["wordpress-development","php","library","wordpress"],
-  "homepage":"https://github.com/mystroken/wordpruss",
+  "homepage":"https://github.com/CompanionsOfWP/wordpruss",
   "license":"MIT",
   "type": "library",
   "require": {
