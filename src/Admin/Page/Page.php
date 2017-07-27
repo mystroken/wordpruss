@@ -7,7 +7,8 @@ use WordPruss\Support\HasArgumentsTrait;
 /**
  * Class AdminPanel
  *
- * @package WordPruss\AdminPanel
+ * @package WordPruss
+ * @subpackage WordPruss\Admin\Page
  * @author Mystro Ken <mystroken@gmail.com>
  * @since v1.0
  * @see https://codex.wordpress.org/Administration_Menus
