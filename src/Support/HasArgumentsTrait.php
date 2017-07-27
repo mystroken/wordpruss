@@ -5,7 +5,8 @@ namespace WordPruss\Support;
 /**
  * Trait HasArguments
  *
- * @package WordPruss\Support
+ * @package WordPruss
+ * @subpackage WordPruss\Support
  * @author Mystro Ken <mystroken@gmail.com>
  * @since v1.0
  */

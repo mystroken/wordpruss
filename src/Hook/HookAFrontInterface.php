@@ -7,7 +7,8 @@ namespace WordPruss\Hook;
  *
  * @codeCoverageIgnore
  *
- * @package WordPruss\Hook
+ * @package WordPruss
+ * @subpackage WordPruss\Hook
  * @author Mystro Ken <mystroken@gmail.com>
  * @since v1.0
  */
