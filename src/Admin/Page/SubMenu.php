@@ -41,7 +41,14 @@ class SubMenu extends AbstractMenu
      * {@inheritdoc}
      * @codeCoverageIgnore
      */
-    public function addMenuPage() {
+    public function addMenuPage()
+    {
+
+        if(is_callable($this->onBeforeHookingCallback))
+        {
+            call_user_func_array($this->onBeforeHookingCallback, [$this]);
+        }
+        
         add_submenu_page(
             $this->getArgument('parent_slug'),
             $this->page->getArgument('title'),

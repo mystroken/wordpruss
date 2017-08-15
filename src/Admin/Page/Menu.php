@@ -42,7 +42,14 @@ class Menu extends AbstractMenu
      * {@inheritdoc}
      * @codeCoverageIgnore
      */
-    public function addMenuPage() {
+    public function addMenuPage()
+    {
+
+        if(is_callable($this->onBeforeHookingCallback))
+        {
+            call_user_func_array($this->onBeforeHookingCallback, [$this]);
+        }
+
         add_menu_page(
             $this->page->getArgument('title'),
             $this->getArgument('title'),
