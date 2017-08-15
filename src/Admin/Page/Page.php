@@ -3,6 +3,7 @@
 namespace WordPruss\Admin\Page;
 
 use WordPruss\Support\HasArgumentsTrait;
+use WordPruss\Admin\Page\AbstractMenu;
 
 /**
  * Class AdminPanel
@@ -18,13 +19,26 @@ class Page
     use HasArgumentsTrait;
 
     /**
+     * @var AbstractMenu $menu
+     */
+    protected $menu;
+
+
+    /**
      * Page constructor.
      *
      * Constructs an admin page.
      *
      * @param $arguments
      */
-    public function __construct( $arguments ) {
+    public function __construct( $arguments, $menu = null )
+    {
+
+        if ($menu !== null && $menu instanceof AbstractMenu)
+        {
+            $this->menu = $menu;
+        }
+
         // Sets defaults arguments.
         $this->setDefault('title', '');
         $this->setDefault('role', 'manage_options');
@@ -46,6 +60,22 @@ class Page
             ? $this->getArgument('title')
             : ''
         ;
+    }
+
+    /**
+     * @return AbstractMenu
+     */
+    public function getMenu(){
+        return $this->menu;
+    }
+
+    /**
+     * @param AbstractMenu $menu
+     * @return self 
+     */
+    public function setMenu(AbstractMenu $menu){
+        $this->menu = $menu;
+        return $this;
     }
 
 }
