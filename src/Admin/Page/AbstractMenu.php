@@ -60,6 +60,7 @@ abstract class AbstractMenu implements HookInterface
 	 */
 	public function setPage( $page ) {
 		$this->page = $page;
+		$this->page->setMenu($this);
 		return $this;
 	}
 
