@@ -25,6 +25,11 @@ abstract class AbstractMenu implements HookInterface
 	 */
 	protected $page = null;
 
+	/**
+	 * @var callable
+	 */
+	protected $onBeforeHookingCallback;
+
 
     /**
      * Hooks all registered actions.
@@ -61,6 +66,19 @@ abstract class AbstractMenu implements HookInterface
 	public function setPage( $page ) {
 		$this->page = $page;
 		$this->page->setMenu($this);
+		return $this;
+	}
+
+	/**
+	 *
+	 * @return self
+	 */
+	public function setBeforeHookingCallback(callable $callback)
+	{
+		if(is_callable($callback))
+		{
+			$this->onBeforeHookingCallback = $callback;
+		}
 		return $this;
 	}
 
